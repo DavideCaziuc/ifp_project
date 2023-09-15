@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+
+.sidebar {
+    width: 20%; /* Larghezza desiderata della sidebar */
+    position: left;
+    top: 0;
+    left: 0;
+    height: 100%;    
+    background-color: #fff; /* Colore di sfondo desiderato */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Ombra desiderata, opzionale */
+  }
+ 
+
+/* Stili CSS per il contenitore del bottone */
+.custom-button-container {
+    position: fixed;
+    left: 0;
+    top: 50%; /* Posiziona il contenitore al 50% dell'altezza della pagina */
+    transform: translateY(-50%); /* Centra verticalmente il contenitore */
+  }
+
+
+  .container-row {
+    width: 79.2%;
+    float: right;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh; /* Imposta l'altezza al 50% dell'altezza della viewport */
+  }
+  
+  .container {
+    background-color: white;
+    width: 50%;
+    height: 100%; /* Altezza al 100% dell'altezza del contenitore padre (container-row) */
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+  }
+  .container-wide {
+    background-color: white;
+    width: 100%;
+    height: 100%; /* Altezza al 100% dell'altezza del contenitore padre (container-row) */
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+  }
+  
+  #myImage {
+    width: 60%; /* Imposta la larghezza al 50% della dimensione originale */
+    height: auto; /* Imposta l'altezza automaticamente in modo proporzionale alla larghezza */
+  }
+  
