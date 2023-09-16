@@ -10,16 +10,18 @@ html, body {
   }
   
 
-.sidebar {
-    width: 20%; /* Larghezza desiderata della sidebar */
-    position: left;
-    top: 0;
+
+  .sidebar {
+    width: 21%;
+    height: 100%;   
+    position: fixed;
     left: 0;
-    height: 100%;    
+    top: 0;
+    overflow-y: auto;
     background-color: #fff; /* Colore di sfondo desiderato */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Ombra desiderata, opzionale */
+  
   }
- 
 
 /* Stili CSS per il contenitore del bottone */
 .custom-button-container {
@@ -43,14 +45,15 @@ html, body {
     width: 50%;
     height: 100%; /* Altezza al 100% dell'altezza del contenitore padre (container-row) */
     box-sizing: border-box;
-    border: 1px solid #ddd;
+   // border: 1px solid #ddd;
+    padding: 2%;
   }
   .container-wide {
     background-color: white;
     width: 100%;
     height: 100%; /* Altezza al 100% dell'altezza del contenitore padre (container-row) */
     box-sizing: border-box;
-    border: 1px solid #ddd;
+   // border: 1px solid #ddd;
   }
 
   .image-container {
@@ -60,7 +63,14 @@ html, body {
   }
   
   #myImage {
-    width: 60%; /* Imposta la larghezza al 50% della dimensione originale */
+    width: 70%; /* Imposta la larghezza al 50% della dimensione originale */
     height: auto; /* Imposta l'altezza automaticamente in modo proporzionale alla larghezza */
   }
-  
+
+
+/* CSS per la tabella */
+.p-datatable {
+  max-height: 100%; /* Imposta l'altezza massima al 100% dell'altezza del contenitore */
+  overflow-y: auto; /* Aggiunge una barra di scorrimento verticale quando necessario */
+  border: 1px solid #ddd; /* Aggiunge un bordo per separare la tabella dal resto del contenuto */
+}

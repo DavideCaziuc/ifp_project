@@ -1,37 +1,75 @@
 <div class="content" role="main">
   <div class="sidebar">
-    <p-sidebar [(visible)]="sidebarVisible" position="left">
+    
       <div class="image-container"><img id="myImage" src="/assets/img/IFP.png"></div>
       <div *ngFor="let category of categories" class="field-checkbox">
-        <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories" [inputId]="'checkbox-' + category"></p-checkbox>
+        <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories" (onChange)="updateDataForSelectedCategories()" [inputId]="'checkbox-' + category"></p-checkbox>
         {{ category }}
-      </div>      
-    </p-sidebar>
+      </div>         
   </div>
 
-  <div class="main-content">
-    <div class="custom-button-container">
-      <p-button icon="pi pi-arrows-h" styleClass="p-button-secondary custom-button" (onClick)="openSidebar()"></p-button>
-    </div>
-  </div>
 
   <div class="container-row">
-    <div class="container" id="container1">
-      <h2>Lista Sedi</h2>
-      <ul>
-        <li *ngFor="let sede of listaSedi">{{ sede.nome }}</li>
-      </ul>
+    <div class="container" id="container1" *ngIf="selectedCategories.includes('Sedi')">
+      <p-table [value]="listaSedi" [tableStyle]="{ 'max-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <th>Città</th>
+            <th>Indirizzo</th>
+            <th>Telefono</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.nome }}</td>
+            <td>{{ product.indirizzo }}</td>
+            <td>{{ product.telefono }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
-    <div class="container" id="container2">
-      <!-- Contenuto del secondo container -->
-      ciao broo2
+    <div class="container" id="container2" *ngIf="selectedCategories.includes('Docenti')">
+      <p-table [value]="listaDocenti" [tableStyle]="{ 'max-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nome</th>
+            <th>Titolo</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.docente }}</td>
+            <td>{{ product.titoloStudio }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
   </div>
   
   <div class="container-row">
-    <div class="container-wide" id="container3">
-      <!-- Contenuto del terzo container -->
-      ciao bro 3
+    <div class="container-wide" id="container3" *ngIf="selectedCategories.includes('Corsi')">
+      <p-table [value]="listaCorsi" [tableStyle]="{ 'max-width': '80rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Durata</th>
+            <th>Docente</th>
+            <th>Titolo</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.nome }}</td>
+            <td>{{ product.durata }}</td>
+            <td>{{ product.docente }}</td>
+            <td>{{ product.titoloDiStudioDocente }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
   </div>
 </div>
